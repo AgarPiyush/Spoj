@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+	long long int t;
+	scanf("%lld",&t);
+	while(t>0)
+	{
+		long long int m,n,i,j,flag=0,a[100000],b[100000],max,min,d=1000000,l=-1;
+		scanf("%lld",&m);
+		for(i=0;i<m;i++)
+		scanf("%lld",&a[i]);
+		scanf("%lld",&n);
+		for(i=0;i<n;i++)
+		scanf("%lld",&b[i]);
+		for(i=0;i<m;i++)
+		{
+			for(j=0;j<n;j++)
+			{
+			if(a[i]>=b[j])	
+			l=a[i]-b[j];
+			else
+			l=b[j]-a[i];
+			if(l<d)
+			{
+				d=l;
+				if(d==0)
+				{
+				flag=1;
+				break;
+				}
+			}
+			}
+			if(flag==1)
+			break;
+		}
+		printf("%lld\n",d);
+		t--;
+	}
+}
